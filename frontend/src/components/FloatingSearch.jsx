@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const FloatingSearch = () => {
-  const API = import.meta.env.VITE_API_URL;
+  const API = 'https://recipefinder-01e0.onrender.com'|| 'http://localhost:5000';
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const navigate = useNavigate();

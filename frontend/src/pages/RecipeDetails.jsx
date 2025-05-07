@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const RecipeDetails = () => {
-    const API = import.meta.env.VITE_API_URL;
+    const API = 'https://recipefinder-01e0.onrender.com'|| 'http://localhost:5000';
 
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
