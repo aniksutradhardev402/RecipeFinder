@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const FloatingSearch = () => {
+  const API = import.meta.env.VITE_API_URL;
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ const FloatingSearch = () => {
       }
 
       try {
-        const response = await axios.get(`http://localhost:5000/api/recipes/search?q=${query}`);
+        const response = await axios.get(`${API}/api/recipes/search?q=${query}`);
         setResults(response.data.results.slice(0, 3));
       } catch (error) {
         console.error('Search error:', error);

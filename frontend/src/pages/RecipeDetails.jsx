@@ -6,13 +6,15 @@ import { useNavigate } from 'react-router-dom';
 
 
 const RecipeDetails = () => {
+    const API = import.meta.env.VITE_API_URL;
+
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
   const navigate = useNavigate();
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/recipes/${id}`);
+        const res = await axios.get(`${API}/api/recipes/${id}`);
         setRecipe(res.data);
       } catch (err) {
         console.error("Failed to fetch recipe:", err);

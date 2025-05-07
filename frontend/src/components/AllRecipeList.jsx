@@ -3,6 +3,7 @@ import axios from 'axios';
 import RecipeCard from './RecipeCard';
 
 const AllRecipeList = () => {
+    const API = import.meta.env.VITE_API_URL;
   const [recipes, setRecipes] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -11,7 +12,7 @@ const AllRecipeList = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/recipes?page=${page}&limit=${limit}`);
+        const res = await axios.get(`${API}/api/recipes?page=${page}&limit=${limit}`);
         setRecipes(res.data.results);
         setTotalPages(res.data.totalPages);
       } catch (err) {
